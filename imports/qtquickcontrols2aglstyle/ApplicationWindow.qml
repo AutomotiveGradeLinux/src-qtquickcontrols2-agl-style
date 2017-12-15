@@ -31,6 +31,6 @@ T.ApplicationWindow {
         anchors.fill: parent
         anchors.topMargin:  -218
         anchors.bottomMargin: -215
-        source: './images/AGL_HMI_Background_NoCar-01.png'
+        source: './images/AGL_HMI_Blue_Background_NoCar-01.png'
     }
 }
