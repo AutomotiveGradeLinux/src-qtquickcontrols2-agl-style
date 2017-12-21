@@ -43,7 +43,7 @@ T.ProgressBar {
             height: control.visualPosition * background.width
             radius: width / 2
             gradient: Gradient {
-                GradientStop { position: 0.0; color: '#59FF7F' }
+                GradientStop { position: 0.0; color: '#00ADDC' }
                 GradientStop { position: 1.0; color: '#6BFBFF' }
             }
         }
