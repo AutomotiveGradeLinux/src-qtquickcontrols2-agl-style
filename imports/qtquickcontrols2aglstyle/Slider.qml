@@ -16,6 +16,7 @@
 
 import QtQuick 2.6
 import QtQuick.Templates 2.0 as T
+import QtGraphicalEffects 1.0
 
 T.Slider {
     id: root
@@ -31,15 +32,18 @@ T.Slider {
         color: "#666666"
 
         Rectangle {
-            rotation: -90
-            transformOrigin: Item.TopLeft
-            y: parent.height
-            width: parent.height
-            height: handle.x + handle.width
-            radius: width / 2
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: '#59FF7F' }
-                GradientStop { position: 1.0; color: '#6BFBFF' }
+            height: parent.height
+            width: handle.x + handle.width
+            radius: height / 2
+
+            layer.enabled: true
+            layer.effect: LinearGradient {
+                start: Qt.point(0, 0)
+                end: Qt.point(background.width, 0)
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#00ADDC" }
+                    GradientStop { position: 1.0; color: "#6BFBFF" }
+                }
             }
         }
     }

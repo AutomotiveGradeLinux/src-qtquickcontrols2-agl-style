@@ -16,6 +16,7 @@
 
 import QtQuick 2.6
 import QtQuick.Templates 2.0 as T
+import QtGraphicalEffects 1.0
 
 T.ProgressBar {
     id: control
@@ -36,15 +37,34 @@ T.ProgressBar {
         implicitHeight: background.implicitHeight
 
         Rectangle {
-            rotation: -90
-            transformOrigin: Item.TopLeft
-            y: 10
-            width: parent.height
-            height: control.visualPosition * background.width
-            radius: width / 2
+            width: control.visualPosition * background.width
+            height: background.height
+            radius: background.radius
+            visible: !control.indeterminate
+        }
+
+        Rectangle {
+            visible: control.indeterminate
+            width: background.width * 0.1
+            height: background.height
+            radius: background.radius
+            NumberAnimation on x {
+                from: 0
+                to: background.width * 0.9
+                duration: 2000
+                loops: Animation.Infinite
+                running: control.indeterminate
+                easing.type: Easing.SineCurve
+            }
+        }
+
+        layer.enabled: true
+        layer.effect: LinearGradient {
+            start: Qt.point(0, 0)
+            end: Qt.point(background.width, 0)
             gradient: Gradient {
-                GradientStop { position: 0.0; color: '#00ADDC' }
-                GradientStop { position: 1.0; color: '#6BFBFF' }
+                GradientStop { position: 0.0; color: "#00ADDC" }
+                GradientStop { position: 1.0; color: "#6BFBFF" }
             }
         }
     }
