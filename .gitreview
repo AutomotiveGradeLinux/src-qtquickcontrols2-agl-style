@@ -2,4 +2,4 @@
 host=gerrit.automotivelinux.org
 port=29418
 project=src/qtquickcontrols2-agl-style
-defaultbranch=master
+defaultbranch=pike
