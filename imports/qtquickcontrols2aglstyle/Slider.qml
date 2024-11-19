@@ -16,7 +16,7 @@
 
 import QtQuick 2.6
 import QtQuick.Templates 2.0 as T
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 T.Slider {
     id: root
